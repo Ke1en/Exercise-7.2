@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        GameCharacters player = new Player("Kelen",6, 3);
-        GameCharacters orc = new Enemy("Orc", 4, 2);
+        Player player = new Player("Kelen",6, 3);
+        Enemy orc = new Enemy("Orc", 4, 2);
 
-        player.dealDamage(player, orc);
-        orc.dealDamage(orc, player);
+        player.dealDamage(orc);
+        orc.dealDamage(player);
 
         System.out.println("У игрока сейчас хп: " + player.getCurrentHealth());
         System.out.println("У орка сейчас хп: " + orc.getCurrentHealth());

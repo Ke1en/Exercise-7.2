@@ -43,24 +43,11 @@ public class GameCharacters {
         this.damagePoints = damagePoints;
     }
 
-    public void dealDamage(GameCharacters firstEntity, GameCharacters secondEntity) {
-        double currentHealthPoints = firstEntity.getCurrentHealth() - secondEntity.getDamagePoints();
-        boolean isDead;
-        isDead = isDead(firstEntity);
-        if(isDead)
-
-            return;
-        firstEntity.setCurrentHealth(currentHealthPoints);
-        damageText(firstEntity, secondEntity);
-
-        currentHealthPoints = secondEntity.getCurrentHealth() - firstEntity.getDamagePoints();
-        isDead = isDead(firstEntity);
-        if(isDead)
-            return;
-        secondEntity.setCurrentHealth(currentHealthPoints);
-        damageText(secondEntity, firstEntity);
+    public void dealDamage(Object entity) {
+        entity.
     }
 
+/*
     private void damageText(GameCharacters firstEntity, GameCharacters secondEntity) {
         System.out.println(firstEntity.name + " наносит " + firstEntity.getDamagePoints() + " единиц урона " + secondEntity.name);
     }
@@ -73,4 +60,5 @@ public class GameCharacters {
         }
         return false;
     }
+    */
 }
