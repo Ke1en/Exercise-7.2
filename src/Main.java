@@ -3,10 +3,17 @@ public class Main {
         Player player = new Player("Kelen",6, 3);
         Enemy orc = new Enemy("Orc", 4, 2);
 
-        player.dealDamage(orc);
-        orc.dealDamage(player);
-
-        System.out.println("У игрока сейчас хп: " + player.getCurrentHealth());
-        System.out.println("У орка сейчас хп: " + orc.getCurrentHealth());
+        do {
+            player.dealDamage(orc);
+            System.out.println("У орка сейчас хп: " + orc.getCurrentHealth());
+            if (orc.getCurrentHealth() == 0.0) {
+                player.setInventory(orc.dropLoot());
+                System.out.println("Игрок поднял предмет: " + player.getInventory());
+                System.out.println("У игрока сейчас хп: " + player.getCurrentHealth());
+                break;
+            }
+            orc.dealDamage(player);
+            System.out.println("У игрока сейчас хп: " + player.getCurrentHealth());
+        } while (player.getCurrentHealth() != 0 || orc.getCurrentHealth() != 0);
     }
 }

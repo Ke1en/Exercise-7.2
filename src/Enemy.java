@@ -1,12 +1,13 @@
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Enemy extends GameCharacters {
-    private List<String> lootTable;
+    private List<String> lootTable = Arrays.asList("Shield", "Sword");
 
     public Enemy(String name, double maximumHealth, double damagePoints) {
         super(name, maximumHealth, damagePoints);
-        lootTable.add("Sword");
     }
 
     public List<String> getLootTable() {
@@ -17,7 +18,9 @@ public class Enemy extends GameCharacters {
         return Collections.singletonList(lootTable.get(i));
     }
 
-    public void dropLoot() {
-        getLootTable();
+    public String dropLoot() {
+        Random random = new Random();
+        int getItem = random.nextInt(lootTable.size());
+        return String.valueOf(getLootTable(getItem));
     }
 }

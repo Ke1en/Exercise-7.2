@@ -43,13 +43,17 @@ public class GameCharacters {
         this.damagePoints = damagePoints;
     }
 
-    public void dealDamage(Object entity) {
-        entity.
+    public void dealDamage(GameCharacters entity) {
+        // Уменьшаем текущее здоровье цели на количество урона
+        entity.setCurrentHealth(entity.getCurrentHealth() - this.damagePoints); // Нанесение урона
+        // Проверка на смерть персонажа
+        if (!isDead(entity)) {
+            damageText(entity); // Вывод сообщения о нанесении урона
+        }
     }
 
-/*
-    private void damageText(GameCharacters firstEntity, GameCharacters secondEntity) {
-        System.out.println(firstEntity.name + " наносит " + firstEntity.getDamagePoints() + " единиц урона " + secondEntity.name);
+    private void damageText(GameCharacters entity) {
+        System.out.println(this.name + " наносит " + this.getDamagePoints() + " единиц урона " + entity.name);
     }
 
     private boolean isDead(GameCharacters entity) {
@@ -60,5 +64,4 @@ public class GameCharacters {
         }
         return false;
     }
-    */
 }
